@@ -12,5 +12,6 @@ namespace CCCoffee.Data.Entities
         public string LastName { get; set; }
         public DateTime ProfileCreated { get; set; }
         public DateTime CustomerBirthday { get; set; }
+        public virtual ICollection<CustomerOrderEntity> CustomerOrders { get; } = new List<CustomerOrderEntity>();
     }
 }
