@@ -1,15 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CCCoffee.Data.Entities
 {
     public class MenuItemEntity
     {
-     public int MenuItemId { get; set; }
-
-    public string MealName { get; set; } = null!;
-
-    public string MealDescription { get; set; } = null!;
-
-    public decimal MealPrice { get; set; }
-
-    private string OrderId {get; set;}
+        [Key]
+        public int MenuItemId { get; set; }
+        [Required]
+        public string? MealName { get; set; }
+        [Required]
+        public string? MealDescription { get; set; }
+        [Required]
+        public decimal MealPrice { get; set; }
+        [ForeignKey(nameof(OrderId))]
+        public int OrderId {get; set;}
     } 
 }
