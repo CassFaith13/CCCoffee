@@ -15,7 +15,8 @@ namespace CCCoffee.Data.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProfileCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -67,15 +68,14 @@ namespace CCCoffee.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
-                    MenuItemId = table.Column<int>(type: "int", nullable: false),
-                    CustomerId1 = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    MenuItemId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CustomerOrders", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_CustomerOrders_Customers_CustomerId1",
-                        column: x => x.CustomerId1,
+                        name: "FK_CustomerOrders_Customers_CustomerId",
+                        column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "CustomerId",
                         onDelete: ReferentialAction.Cascade);
@@ -88,9 +88,9 @@ namespace CCCoffee.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CustomerOrders_CustomerId1",
+                name: "IX_CustomerOrders_CustomerId",
                 table: "CustomerOrders",
-                column: "CustomerId1");
+                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CustomerOrders_MenuItemId",

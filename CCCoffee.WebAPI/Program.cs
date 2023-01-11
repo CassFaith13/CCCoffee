@@ -1,10 +1,13 @@
 using System.Text;
 using CCCoffee.Data;
+using CCCoffee.Services.Customer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
+
+// IOC Container
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Service Dependency Injections
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 // Add Jwt Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -64,6 +68,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+// IOC Closed
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

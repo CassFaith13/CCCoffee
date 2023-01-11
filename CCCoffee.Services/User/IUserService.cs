@@ -1,11 +1,11 @@
-using CCCoffee.Models.User;
+// using CCCoffee.Models.User;
 
-namespace CCCoffee.Services.User
-{
-    public interface IUserService
-    {
-        Task<bool> RegisterUserAsync(UserRegister model);
+// namespace CCCoffee.Services.User
+// {
+//     public interface IUserService
+//     {
+//         Task<bool> RegisterUserAsync(UserRegister model);
 
-        Task<UserDetail> GetUserByIdAsync(int userId);
-    }
-}
+//         Task<UserDetail> GetUserByIdAsync(int userId);
+//     }
+// }
