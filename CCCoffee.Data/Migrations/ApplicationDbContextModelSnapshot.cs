@@ -24,8 +24,11 @@ namespace CCCoffee.Data.Migrations
 
             modelBuilder.Entity("CCCoffee.Data.Entities.CustomerEntity", b =>
                 {
-                    b.Property<string>("CustomerId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CustomerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
 
                     b.Property<DateTime>("CustomerBirthday")
                         .HasColumnType("datetime2");
@@ -57,10 +60,6 @@ namespace CCCoffee.Data.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CustomerId1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("MenuItemId")
                         .HasColumnType("int");
 
@@ -69,7 +68,7 @@ namespace CCCoffee.Data.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("CustomerId1");
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("MenuItemId");
 
@@ -140,7 +139,7 @@ namespace CCCoffee.Data.Migrations
                 {
                     b.HasOne("CCCoffee.Data.Entities.CustomerEntity", "Customer")
                         .WithMany("CustomerOrders")
-                        .HasForeignKey("CustomerId1")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

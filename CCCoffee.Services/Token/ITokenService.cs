@@ -1,9 +1,9 @@
-using CCCoffee.Models.Token;
+// using CCCoffee.Models.Token;
 
-namespace CCCoffee.Services.Token
-{
-    public interface ITokenService
-    {
-        Task<TokenResponse> GetTokenAsync(TokenRequest model);
-    }
-}
+// namespace CCCoffee.Services.Token
+// {
+//     public interface ITokenService
+//     {
+//         Task<TokenResponse> GetTokenAsync(TokenRequest model);
+//     }
+// }

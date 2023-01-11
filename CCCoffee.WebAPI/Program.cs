@@ -1,6 +1,9 @@
 using CCCoffee.Data;
+using CCCoffee.Services.Customer;
 using Microsoft.EntityFrameworkCore;
 
+
+// IOC Container
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,8 +15,10 @@ builder.Services.AddSwaggerGen();
 
 // Add Connection String
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 var app = builder.Build();
+
+// IOC Closed
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
