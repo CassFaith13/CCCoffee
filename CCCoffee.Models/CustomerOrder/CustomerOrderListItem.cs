@@ -6,8 +6,9 @@ namespace CCCoffee.Models.CustomerOrder
     public class CustomerOrderListItem
     {
         public int OrderId { get; set; }
-        public DateTimeOffset OrderDate { get; set; }
-        public ICollection<CustomerListItem> Customer { get; } = new List<CustomerListItem>();
-        public ICollection<MenuItemListItem> MenuItems { get; } = new List<MenuItemListItem>();
+        public DateTime OrderDate { get; set; }
+        public string? CustomerFirstName { get; set; } = null!;
+        public string? CustomerLastName { get; set; } = null!;
+        public string? MealName { get; set; } = null!;
     }
 }

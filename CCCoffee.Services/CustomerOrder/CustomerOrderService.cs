@@ -17,8 +17,9 @@ namespace CCCoffee.Services.CustomerOrder
         {
             var customerOrderEntity = new CustomerOrderEntity
             {
-                OrderDate = order.DateTimeOffset.Now,
-
+                OrderDate = order.OrderDate,
+                CustomerId = order.CustomerId,
+                MenuItemId = order.MenuItemId
             };
 
             _context.CustomerOrders.Add(customerOrderEntity);
@@ -39,7 +40,7 @@ namespace CCCoffee.Services.CustomerOrder
 
             return orders;
         }
-        public async Task<CustomerOrderDetail?> GetOrderByIdAsync(int orderId)
+        public async Task<CustomerOrderDetail?> GetOrdersByIdAsync(int orderId)
         {
             var customerOrderEntity = await _context.CustomerOrders
             .FirstOrDefaultAsync(e => e.OrderId == orderId);
@@ -50,16 +51,16 @@ namespace CCCoffee.Services.CustomerOrder
                 OrderDate = customerOrderEntity.OrderDate
             };
         }
-        public async Task<bool> UpdateOrderAsync(CustomerOrderUpdate order)
-        {
-            var customerOrderEntity = await _context.CustomerOrders.FindAsync(order.OrderId);
+        // public async Task<bool> UpdateOrderAsync(CustomerOrderUpdate order)
+        // {
+        //     var customerOrderEntity = await _context.CustomerOrders.FindAsync(order.OrderId);
 
-            customerOrderEntity.OrderDate = order.OrderDate;
+        //     customerOrderEntity.OrderDate = order.OrderDate;
 
-            var numberOfChanges = await _context.SaveChangesAsync();
+        //     var numberOfChanges = await _context.SaveChangesAsync();
 
-            return numberOfChanges == 1;
-        }
+        //     return numberOfChanges == 1;
+        // }
         public async Task<bool> DeleteOrderAsync(int orderId)
         {
             var customerOrderEntity = await _context.CustomerOrders.FindAsync(orderId);
