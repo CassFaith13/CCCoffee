@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CCCoffee.Data;
 using CCCoffee.Data.Entities;
 using CCCoffee.Models.CustomerModels;
-using CCCoffee.Services;
 
 namespace CCCoffee.Services.Customer
 {

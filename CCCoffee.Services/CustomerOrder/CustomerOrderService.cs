@@ -1,8 +1,7 @@
-// using CCCoffee.Data;
-// using CCCoffee.Data.Entities;
-// using CCCoffee.Models.CustomerOrder;
-// using Microsoft.AspNetCore.Http;
-// using Microsoft.EntityFrameworkCore;
+using CCCoffee.Data;
+using CCCoffee.Data.Entities;
+using CCCoffee.Models.CustomerOrder;
+using Microsoft.EntityFrameworkCore;
 
 namespace CCCoffee.Services.CustomerOrder
 {
@@ -22,21 +21,21 @@ namespace CCCoffee.Services.CustomerOrder
                 MenuItemId = order.MenuItemId
             };
 
-//             _context.CustomerOrders.Add(customerOrderEntity);
+            _context.CustomerOrders.Add(customerOrderEntity);
 
-//             var numberOfChanges = await _context.SaveChangesAsync();
-//             return numberOfChanges == 1;
-//         }
+            var numberOfChanges = await _context.SaveChangesAsync();
+            return numberOfChanges == 1;
+        }
 
-//         public async Task<IEnumerable<CustomerOrderListItem>> GetAllOrdersAsync()
-//         {
-//             var orders = await _context.CustomerOrders
-//             .Select(entity => new CustomerOrderListItem
-//             {
-//                 OrderId = entity.OrderId,
-//                 OrderDate = entity.OrderDate
-//             })
-//             .ToListAsync();
+        public async Task<IEnumerable<CustomerOrderListItem>> GetAllOrdersAsync()
+        {
+            var orders = await _context.CustomerOrders
+            .Select(entity => new CustomerOrderListItem
+            {
+                OrderId = entity.OrderId,
+                OrderDate = entity.OrderDate
+            })
+            .ToListAsync();
 
             return orders;
         }
@@ -65,9 +64,9 @@ namespace CCCoffee.Services.CustomerOrder
         {
             var customerOrderEntity = await _context.CustomerOrders.FindAsync(orderId);
 
-//             _context.CustomerOrders.Remove(customerOrderEntity);
+            _context.CustomerOrders.Remove(customerOrderEntity);
 
-//             return await _context.SaveChangesAsync() == 1;
-//         }
-//     }
-// }
+            return await _context.SaveChangesAsync() == 1;
+        }
+    }
+}
