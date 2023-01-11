@@ -9,7 +9,7 @@ namespace CCCoffee.Models.CustomerOrder
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
         public CustomerEntity FirstName { get; set; } = null!;
-        public string? LastName { get; set; } = null!;
-        public string? MealName { get; set; } = null!;
+        public CustomerEntity LastName { get; set; } = null!;
+        public MenuItemEntity MealName { get; set; } = null!;
     }
 }
