@@ -7,7 +7,6 @@ namespace CCCoffee.Services.CustomerOrder
         Task<bool> CreateCustomerOrderAsync(CustomerOrderCreate order);
         Task<IEnumerable<CustomerOrderListItem>> GetAllOrdersAsync();
         Task<CustomerOrderDetail> GetOrdersByIdAsync(int orderId);
-        Task<bool> UpdateOrderAsync(CustomerOrderUpdate order);
         Task<bool> DeleteOrderAsync(int orderId);
     }
 }
