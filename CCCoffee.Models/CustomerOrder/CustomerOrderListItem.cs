@@ -1,6 +1,4 @@
 using CCCoffee.Data.Entities;
-using CCCoffee.Models.CustomerModels;
-using CCCoffee.Models.MenuItem;
 
 namespace CCCoffee.Models.CustomerOrder
 {

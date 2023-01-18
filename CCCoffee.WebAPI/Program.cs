@@ -1,6 +1,10 @@
 using System.Text;
 using CCCoffee.Data;
 using CCCoffee.Services.Customer;
+using CCCoffee.Services.MenuItem;
+using CCCoffee.Services.CustomerOrder;
+using CCCoffee.Services.Token;
+using CCCoffee.Services.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -21,7 +25,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Service Dependency Injections
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<ITokenService, TokenService>();
+
+builder.Services.AddScoped<ICustomerOrderService, CustomerOrderService>();
+
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+
+builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 
 // Add Jwt Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
