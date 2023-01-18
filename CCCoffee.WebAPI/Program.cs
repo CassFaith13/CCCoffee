@@ -22,6 +22,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 // Service Dependency Injections
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IMenuServices, MenuServices>();
 
 // Add Jwt Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace CCCoffee.Models.MenuModels
 {
-    public class MenuList
+    public class MenuEdit
     {
-        public int MenuItemId { get; set;}
         public string? MealName { get; set;}
-        public decimal MealPrice { get; set;}
+        public string? MealDescription { get; set;}
+        public string? MealPrice { get; set;}
     }
 }
