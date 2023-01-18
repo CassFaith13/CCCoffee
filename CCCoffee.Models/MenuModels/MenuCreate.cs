@@ -10,11 +10,12 @@ namespace CCCoffee.Models.Menu
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Sorry you can only have 50 characters")]
-        public string MealName { get; set; }
+        public string? MealName { get; set; }
         [Required]
-        public int MealDescription { get; set; }
+        [MaxLength(150, ErrorMessage = "Meal Name cannot exceed 150 characters!")]
+        public string? MealDescription { get; set; }
         [Required]
-        public string MealPrice { get; set; }
+        public decimal MealPrice { get; set; }
         
     }
 }
