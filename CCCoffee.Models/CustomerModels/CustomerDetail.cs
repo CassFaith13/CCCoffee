@@ -2,7 +2,7 @@ namespace CCCoffee.Models.CustomerModels
 {
     public class CustomerDetail
     {
-        public string? CustomerId { get; set; }
+        public int? CustomerId { get; set; }
         
         public string? FirstName { get; set; }
         
