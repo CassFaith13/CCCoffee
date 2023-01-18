@@ -1,7 +1,7 @@
 using System.Text;
 using CCCoffee.Data;
 using CCCoffee.Services.Customer;
-using CCCoffee.Services.MenuItem;
+// using CCCoffee.Services.MenuItem;
 using CCCoffee.Services.CustomerOrder;
 using CCCoffee.Services.Token;
 using CCCoffee.Services.User;
@@ -33,7 +33,7 @@ builder.Services.AddScoped<ICustomerOrderService, CustomerOrderService>();
 
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
-builder.Services.AddScoped<IMenuItemService, MenuItemService>();
+// builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 
 // Add Jwt Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
