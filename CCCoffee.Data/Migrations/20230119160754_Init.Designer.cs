@@ -97,9 +97,6 @@ namespace CCCoffee.Data.Migrations
                     b.Property<decimal>("MealPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
                     b.HasKey("MenuItemId");
 
                     b.ToTable("MenuItems");

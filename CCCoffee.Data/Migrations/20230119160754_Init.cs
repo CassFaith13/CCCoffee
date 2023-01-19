@@ -35,8 +35,7 @@ namespace CCCoffee.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MealName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MealDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MealPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false)
+                    MealPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {

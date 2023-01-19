@@ -13,7 +13,5 @@ namespace CCCoffee.Data.Entities
         public string? MealDescription { get; set; }
         [Required]
         public decimal MealPrice { get; set; }
-        [ForeignKey(nameof(OrderId))]
-        public int OrderId {get; set;}
     } 
 }
