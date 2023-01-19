@@ -30,25 +30,39 @@ namespace CCCoffee.Services.CustomerOrder
         public async Task<IEnumerable<CustomerOrderListItem>> GetAllOrdersAsync()
         {
             var orders = await _context.CustomerOrders
+            .Include(entity => entity.Customer)
+            .Include(entity => entity.MenuItem)
             .Select(entity => new CustomerOrderListItem
             {
                 OrderId = entity.OrderId,
-                OrderDate = entity.OrderDate
+                OrderDate = entity.OrderDate,
+                CustomerFirstName = entity.Customer.FirstName,
+                CustomerLastName = entity.Customer.LastName,
+                MealName = entity.MenuItem.MealName
             })
             .ToListAsync();
 
             return orders;
         }
-        public async Task<CustomerOrderDetail?> GetOrdersByIdAsync(int orderId)
+        public async Task<IEnumerable<CustomerOrderDetail>> GetOrdersByIdAsync(int orderId)
         {
-            var customerOrderEntity = await _context.CustomerOrders
-            .FirstOrDefaultAsync(e => e.OrderId == orderId);
+            // var customerOrderEntity = await _context.CustomerOrders
+            // .FirstOrDefaultAsync(e => e.OrderId == orderId);
 
-            return customerOrderEntity is null ? null : new CustomerOrderDetail
+            // return customerOrderEntity is null ? null : 
+            var customerOrderEntity = await _context.CustomerOrders
+            .Include(customerOrderEntity => customerOrderEntity.Customer)
+            .Include(customerOrderEntity => customerOrderEntity.MenuItem)
+            .Select(customerOrderEntity => new CustomerOrderDetail
             {
                 OrderId = customerOrderEntity.OrderId,
-                OrderDate = customerOrderEntity.OrderDate
-            };
+                OrderDate = customerOrderEntity.OrderDate,
+                CustomerFirstName = customerOrderEntity.Customer.FirstName,
+                CustomerLastName = customerOrderEntity.Customer.LastName,
+                MealName = customerOrderEntity.MenuItem.MealName
+            }).ToListAsync();
+
+            return customerOrderEntity;
         }
         // public async Task<bool> UpdateOrderAsync(CustomerOrderUpdate order)
         // {

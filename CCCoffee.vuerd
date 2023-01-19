@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -291.5,
-    "scrollLeft": -942,
+    "scrollTop": -316.5,
+    "scrollLeft": -1221,
     "zoomLevel": 1,
     "show": {
       "tableComment": false,
@@ -347,14 +347,14 @@
             "ui": {
               "active": false,
               "pk": false,
-              "fk": false,
+              "fk": true,
               "pfk": false,
               "widthName": 69.18994140625,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "e54d76ac-bd28-45cf-aff2-9265d2ebd066"
+            "id": "b7969352-bc7b-4c73-8c3a-451d4a66ce68"
           },
           {
             "name": "MenuItemId",
@@ -370,55 +370,9 @@
             "ui": {
               "active": false,
               "pk": false,
-              "fk": false,
+              "fk": true,
               "pfk": false,
               "widthName": 70.6435546875,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "3c71fbf9-94b9-481c-9356-b7e197285296"
-          },
-          {
-            "name": "CustomerId",
-            "comment": "",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 69.18994140625,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "b7969352-bc7b-4c73-8c3a-451d4a66ce68"
-          },
-          {
-            "name": "MealItemId",
-            "comment": "",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 66.3017578125,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
@@ -430,7 +384,7 @@
           "active": false,
           "left": 1540.3029,
           "top": 322.3163,
-          "zIndex": 2,
+          "zIndex": 13,
           "widthName": 91.578125,
           "widthComment": 60,
           "color": "#00FFEC"
@@ -620,7 +574,7 @@
             "b7969352-bc7b-4c73-8c3a-451d4a66ce68"
           ],
           "x": 1540.3029,
-          "y": 418.3163,
+          "y": 397.8163,
           "direction": "left"
         },
         "constraintName": "fk_customer_to_customerorder",
@@ -646,7 +600,7 @@
             "1e337f22-2be4-4e35-b3de-70a46ddd3964"
           ],
           "x": 1657.507245703125,
-          "y": 514.3163,
+          "y": 473.3163,
           "direction": "bottom"
         },
         "constraintName": "fk_menu item_to_customerorder",

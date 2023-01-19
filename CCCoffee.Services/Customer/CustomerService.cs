@@ -49,7 +49,7 @@ namespace CCCoffee.Services.Customer
             {
                 CustomerId = customerDetail.CustomerId,
                 FirstName = customerDetail.FirstName,
-                LastName = customerDetail.LastName
+                LastName = customerDetail.LastName,
             };
         }
 
@@ -64,6 +64,7 @@ namespace CCCoffee.Services.Customer
         //         LastName = customerDetail.LastName
         //     };
         // }
+        
 
         public async Task<bool> DeleteCustomerAsync(int customerId)
         {
