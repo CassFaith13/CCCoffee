@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using CCCoffee.Models.Token;
+using Microsoft.AspNetCore.Identity;
 
 namespace CCCoffee.Services.Token
 {
@@ -19,7 +20,7 @@ namespace CCCoffee.Services.Token
             _context = context;
             _configuration = configuration;
         }
-        public async Task<TokenResponse> GetTokenAsync(TokenRequest model)
+        public async Task<TokenResponse?> GetTokenAsync(TokenRequest model)
         {
             var userEntity = await GetValidUserAsync(model);
 
@@ -29,9 +30,9 @@ namespace CCCoffee.Services.Token
             }
             return GenerateToken(userEntity);
         }
-        
+
         // Helper Methods
-        private async Task<UserEntity> GetValidUserAsync(TokenRequest model) 
+        private async Task<UserEntity?> GetValidUserAsync(TokenRequest model)
         {
             var userEntity = await _context.Users.FirstOrDefaultAsync(user => user.Username.ToLower() == model.Username.ToLower());
 
@@ -39,8 +40,18 @@ namespace CCCoffee.Services.Token
             {
                 return null;
             }
+
+            var passwordHasher = new PasswordHasher<UserEntity>();
+
+            var verifyPasswordResult = passwordHasher.VerifyHashedPassword(userEntity, userEntity.Password, model.Password);
+
+            if (verifyPasswordResult == PasswordVerificationResult.Failed)
+            {
+                return null;
+            }
             return userEntity;
         }
+
         private TokenResponse GenerateToken(UserEntity entity)
         {
             var claims = GetClaims(entity);
@@ -69,6 +80,7 @@ namespace CCCoffee.Services.Token
             };
             return tokenResponse;
         }
+        
         private Claim[] GetClaims(UserEntity user)
         {
             var fullName = $"{user.FirstName} {user.LastName}";

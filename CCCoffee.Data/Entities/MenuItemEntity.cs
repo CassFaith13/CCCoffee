@@ -8,9 +8,9 @@ namespace CCCoffee.Data.Entities
         [Key]
         public int MenuItemId { get; set; }
         [Required]
-        public string MealName { get; set; }
+        public string? MealName { get; set; }
         [Required]
-        public string MealDescription { get; set; }
+        public string? MealDescription { get; set; }
         [Required]
         public decimal MealPrice { get; set; }
         [ForeignKey(nameof(OrderId))]

@@ -13,7 +13,7 @@ namespace CCCoffee.Data.Entities
         public int CustomerId { get; set; }
         [ForeignKey(nameof(MenuItemId))]
         public int MenuItemId { get; set; }
-        public virtual CustomerEntity Customer { get; set; }
-        public virtual MenuItemEntity MenuItem { get; set; }
+        public virtual CustomerEntity? Customer { get; set; }
+        public virtual MenuItemEntity? MenuItem { get; set; }
     }
 }

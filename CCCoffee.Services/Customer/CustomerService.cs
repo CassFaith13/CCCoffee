@@ -41,7 +41,7 @@ namespace CCCoffee.Services.Customer
             return customers;
         }
 
-        public async Task<CustomerDetail> GetCustomerByIdAsync(int customerId)
+        public async Task<CustomerDetail?> GetCustomerByIdAsync(int customerId)
         {
             var customerDetail = await _context.Customers.FirstOrDefaultAsync(e => e.CustomerId == customerId);
 

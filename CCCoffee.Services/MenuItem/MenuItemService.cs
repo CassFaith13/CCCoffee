@@ -30,7 +30,7 @@ namespace CCCoffee.Services.MenuItem
             return numberOfChanges == 1;
         }
 
-        public async Task<MealDetail> GetMenuItemByIdAsync(int menuItemId)
+        public async Task<MealDetail?> GetMenuItemByIdAsync(int menuItemId)
         {
             var menuItemEntity = await _context.MenuItems.FirstOrDefaultAsync(e => e.MenuItemId == menuItemId);
 
