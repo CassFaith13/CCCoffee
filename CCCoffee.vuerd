@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -277.5,
-    "scrollLeft": -941,
+    "scrollTop": -404.5,
+    "scrollLeft": -1297,
     "zoomLevel": 1,
     "show": {
       "tableComment": false,
@@ -118,7 +118,7 @@
           {
             "name": "MealPrice",
             "comment": "",
-            "dataType": "VARCHAR",
+            "dataType": "DECIMAL",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -133,40 +133,17 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
-              "widthDataType": 64.60693359375,
+              "widthDataType": 60,
               "widthDefault": 60
             },
             "id": "c7f78e8d-fd8a-4acb-87f5-b3de99e186f1"
-          },
-          {
-            "name": "OrderId",
-            "comment": "",
-            "dataType": "VARCHAR",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 64.60693359375,
-              "widthDefault": 60
-            },
-            "id": "359b8247-8064-487d-bb04-1005ca987bc9"
           }
         ],
         "ui": {
           "active": false,
           "left": 1546.466,
           "top": 719.8871,
-          "zIndex": 2,
+          "zIndex": 9,
           "widthName": 63.41357421875,
           "widthComment": 60,
           "color": "#FF2600"
