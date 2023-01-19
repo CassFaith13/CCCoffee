@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CCCoffee.Models.Menu
 {
-    public class MenuItem
+    public class MealCreate
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Sorry you can only have 50 characters")]
