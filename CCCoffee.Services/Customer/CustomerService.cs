@@ -25,7 +25,7 @@ namespace CCCoffee.Services.Customer
 
             _context.Customers.Add(customerEntity);
             var numberOfChanges = await _context.SaveChangesAsync();
-            return numberOfChanges == 1;            
+            return numberOfChanges == 1;
         }
 
         public async Task<IEnumerable<CustomerListItem>> GetCustomersAsync()
@@ -35,33 +35,35 @@ namespace CCCoffee.Services.Customer
                 CustomerId = entity.CustomerId,
                 FirstName = entity.FirstName,
                 LastName = entity.LastName
-
             })
             .ToListAsync();
-            
+
             return customers;
         }
 
-        public async Task<CustomerDetail?> GetCustomerByIdAsync(int customerId)
+        public async Task<CustomerDetail> GetCustomerByIdAsync(int customerId)
         {
             var customerDetail = await _context.Customers.FirstOrDefaultAsync(e => e.CustomerId == customerId);
 
             return customerDetail is null ? null : new CustomerDetail
             {
                 CustomerId = customerDetail.CustomerId,
-                
+                FirstName = customerDetail.FirstName,
+                LastName = customerDetail.LastName
             };
         }
 
-        public async Task<CustomerDetail> GetCustomerByNameAsync(string name)
-        {
-            throw new NotImplementedException();
-        }
+        // public async Task<CustomerDetail> GetCustomerByNameAsync(string )
+        // {
+        //     var customerDetail = await _context.Customers.FirstOrDefaultAsync(e => e.CustomerName == customerName);
 
-        public Task<bool> UpdateCustomerAsync(int customerId, CustomerEdit customerEdit)
-        {
-            throw new NotImplementedException();
-        }
+        //     return customerDetail is null ? null : new CustomerDetail
+        //     {
+        //         CustomerId = customerDetail.CustomerId,
+        //         FirstName = customerDetail.FirstName,
+        //         LastName = customerDetail.LastName
+        //     };
+        // }
 
         public async Task<bool> DeleteCustomerAsync(int customerId)
         {
@@ -69,12 +71,7 @@ namespace CCCoffee.Services.Customer
 
             _context.Customers.Remove(customerEntity);
 
-            return await _context.SaveChangesAsync()== 1;
-        }
-
-        Task<CustomerListItem> ICustomerService.GetCustomersAsync()
-        {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync() == 1;
         }
     }
 }

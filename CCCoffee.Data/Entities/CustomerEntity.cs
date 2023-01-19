@@ -5,11 +5,11 @@ namespace CCCoffee.Data.Entities
     public class CustomerEntity
     {
         [Key]
-        public int? CustomerId { get; set; }
+        public int CustomerId { get; set; }
         [Required]
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
         [Required]
-        public string? LastName { get; set; }
+        public string LastName { get; set; }
         public DateTime ProfileCreated { get; set; }
         [Required]
         public DateTime CustomerBirthday { get; set; }

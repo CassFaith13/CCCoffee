@@ -18,6 +18,7 @@ namespace CCCoffee.WebAPI.Controllers
             _userService = userService;
             _tokenService = tokenService;
         }
+        
         [HttpPost("Register User")]
         public async Task<IActionResult> RegisterUser([FromBody] UserRegister model)
         {
@@ -33,6 +34,19 @@ namespace CCCoffee.WebAPI.Controllers
             }
             return BadRequest("New user could NOT be created. Please try again.");
         }
+
+        [Authorize]
+        [HttpGet, Route("{userId}")]
+        public async Task<IActionResult> GetById(int userId)
+        {
+            var userDetail = await _userService.GetUserByIdAsync(userId);
+            if (userDetail is null)
+            {
+                return NotFound();
+            }
+            return Ok(userDetail);
+        }
+
         [HttpPost, Route("~/api/Token")]
         public async Task<IActionResult> Token([FromBody] TokenRequest request)
         {
@@ -47,17 +61,6 @@ namespace CCCoffee.WebAPI.Controllers
                 return BadRequest("Invalid username or password.");
             }
             return Ok(tokenResponse);
-        }
-        [Authorize]
-        [HttpGet, Route("{userId")]
-        public async Task<IActionResult> GetById(int userId)
-        {
-            var userDetail = await _userService.GetUserByIdAsync(userId);
-            if (userDetail is null)
-            {
-                return NotFound();
-            }
-            return Ok(userDetail);
         }
     }
 }

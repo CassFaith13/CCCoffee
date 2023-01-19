@@ -39,7 +39,7 @@ namespace CCCoffee.Services.CustomerOrder
 
             return orders;
         }
-        public async Task<CustomerOrderDetail?> GetOrdersByIdAsync(int orderId)
+        public async Task<CustomerOrderDetail> GetOrdersByIdAsync(int orderId)
         {
             var customerOrderEntity = await _context.CustomerOrders
             .FirstOrDefaultAsync(e => e.OrderId == orderId);

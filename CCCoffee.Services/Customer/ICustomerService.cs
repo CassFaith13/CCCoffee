@@ -6,10 +6,10 @@ namespace CCCoffee.Services.Customer
     public interface ICustomerService
     {
         Task<bool> CreateCustomerAsync(CustomerCreate customer);
-        Task<CustomerListItem>GetCustomersAsync();
-        Task<CustomerDetail>GetCustomerByIdAsync(int customerId);
-        Task<CustomerDetail>GetCustomerByNameAsync(string customerName);
-        Task<bool> UpdateCustomerAsync(int customerId, CustomerEdit customerEdit);
+        Task<IEnumerable<CustomerListItem>> GetCustomersAsync();
+        Task<CustomerDetail> GetCustomerByIdAsync(int customerId);
+        // Task<CustomerDetail>GetCustomerByNameAsync(string customerName);
+        // Task<bool> UpdateCustomerAsync(int customerId, CustomerEdit customerEdit);
         Task<bool> DeleteCustomerAsync(int customerId);
     }
 }

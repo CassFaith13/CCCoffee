@@ -4,9 +4,9 @@ namespace CCCoffee.Models.CustomerModels
     {
         public int? CustomerId { get; set; }
         
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
         
-        public string? LastName { get; set; }
+        public string LastName { get; set; }
         public DateTime ProfileCreated { get; set; }
         public DateTime CustomerBirthday { get; set; }
     }
