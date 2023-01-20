@@ -1,17 +1,17 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CCCoffee.Data.Entities
+namespace CCCoffee.Models.Menu
 {
-    public class MenuItemEntity
+    public class MealCreate
     {
-        [Key]
-        public int MenuItemId { get; set; }
         [Required]
+        [MaxLength(50, ErrorMessage = "Sorry you can only have 50 characters")]
         public string? MealName { get; set; }
         [Required]
+        [MaxLength(150, ErrorMessage = "Meal Name cannot exceed 150 characters!")]
         public string? MealDescription { get; set; }
         [Required]
         public decimal MealPrice { get; set; }
-    } 
+        
+    }
 }
