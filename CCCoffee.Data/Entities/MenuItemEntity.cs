@@ -13,5 +13,6 @@ namespace CCCoffee.Data.Entities
         public string? MealDescription { get; set; }
         [Required]
         public decimal MealPrice { get; set; }
+        public int OrderId {get;set;}
     } 
 }

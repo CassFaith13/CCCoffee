@@ -21,7 +21,8 @@ namespace CCCoffee.Services.MenuItem
             {
                 MealName = model.MealName,
                 MealDescription = model.MealDescription,
-                MealPrice = model.MealPrice
+                MealPrice = model.MealPrice,
+                OrderId = model.OrderId
             };
             _context.MenuItems.Add(menuItemEntity);
 
@@ -39,6 +40,7 @@ namespace CCCoffee.Services.MenuItem
 
             return new MealDetail
             {
+                MenuItemId = menuItemEntity.MenuItemId,
                 MealName = menuItemEntity.MealName,
                 MealDescription = menuItemEntity.MealDescription,
                 MealPrice = menuItemEntity.MealPrice

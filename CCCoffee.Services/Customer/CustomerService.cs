@@ -50,6 +50,8 @@ namespace CCCoffee.Services.Customer
                 CustomerId = customerDetail.CustomerId,
                 FirstName = customerDetail.FirstName,
                 LastName = customerDetail.LastName,
+                ProfileCreated = customerDetail.ProfileCreated,
+                CustomerBirthday = customerDetail.CustomerBirthday
             };
         }
 
